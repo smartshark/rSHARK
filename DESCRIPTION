@@ -1,0 +1,11 @@
+Package: rSHARK
+Title: Calls the sparkSHARK backend api
+Version: 0.1
+Authors@R: person("Luqman", "Ul Khair", email = "luqmanulkhair@gmail.com", role = c("aut", "cre"))
+Description: Package provides R interface to the sparkSHARK backend api.Methods of the sparkSHARK can be called from R using this package.
+Depends: R (>= 3.3.2)
+Imports:SparkR
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 5.0.1.9000
