@@ -1,16 +1,25 @@
-# rSHARK
-R library for using SmartSHARK
-## Install
-### via RStudio
-You need to load SparkR [SparkR](https://github.com/apache/spark/tree/master/R) package first.Set Enviroment variable SPARK_HOME and load the SparkR libarary. In R Studio you can run [SparkRDoc](http://spark.apache.org/docs/latest/sparkr.html)
+rSHARK
+======
+rSHARK provides an R library for create Apache Spark dataframes from the MongoDB created by the SmartSHARK platform. The data can then be analyzed with [SparkR](https://spark.apache.org/docs/latest/sparkr.html).
 
-    if (nchar(Sys.getenv("SPARK_HOME")) < 1) {
-      Sys.setenv(SPARK_HOME = SPARK_PATH)
-    }
-    library(SparkR, lib.loc = c(file.path(Sys.getenv("SPARK_HOME"), "R", "lib")))
-After installing and loading SparkR you can install rSHARK package.In RStudio you can run:
+Prerequistes
+============
+A prerequiste for using rSHARK is a working installation of SparkR. A guide for the installation, including on how to load SparkR with RStudio can be found online, e.g., [here](https://github.com/apache/spark/tree/master/R).
 
-    install_github("smartshark/rSHARK")
+Installation
+============
+
+Once SparkR is running, rSHARK can be installed directly from this repository using the [devtools](https://cran.r-project.org/web/packages/devtools/index.html):
+```R
+if (!require("devtools")) install.packages("devtools")
+library(devtools)
+install_github("smartshark/rSHARK")
+```
+You can then load the rSHARK library with the standard command:
+```R
+library(rSHARK)
+```
+
 ## Execution
 ### via RStudio
 rSHARK uses mongoDB where the data is stored.MongoDB must be running before running any function.rSHARK also need sparkSession to be initilized and passed form outside.To initilize [SparkSession](http://spark.apache.org/docs/latest/sparkr.html) you can run:
