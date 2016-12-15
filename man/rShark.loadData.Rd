@@ -7,6 +7,8 @@
 rShark.loadData(mongoDBUtils, collectionName)
 }
 \arguments{
+\item{mongoDBUtils}{To be provided on which loadData method is called.}
+
 \item{collectionName}{To be provided for which data is retrived from backend.}
 }
 \value{
@@ -16,7 +18,7 @@ SparkDataFrame
 This function calls loadData on backend.
 }
 \examples{
-rShark.loadData (collectionName)
+rShark.loadData (mongoDBUtils,collectionName)
 }
 \keyword{loadData}
 

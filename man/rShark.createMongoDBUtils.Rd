@@ -13,7 +13,7 @@ rShark.createMongoDBUtils(sparkSession)
 MongoDBUtils
 }
 \description{
-This function creates MongoDBUtil on backend.
+This function creates MongoDBUtils on backend.
 }
 \examples{
 rShark.createMongoDBUtils(SparkSession)
