@@ -41,7 +41,7 @@ sparkSession <- sparkR.session(master=SPARK_MASTER,
 You have to replace `SPARK_MASTER`, `SPARKSHARK_JAR`, and `JAVA_OPTIONS` with the correct values:
 - `SPARK_MASTER`: the address of the Spark master (see [here](http://spark.apache.org/docs/latest/submitting-applications.html#master-urls))
 - `SPARKSHARK_JAR`: location of the sparkSHARK.jar file.
-- `JAVA_OPTIONS`: arguments to to the JVM used for the Spark execution. These arguments should be used to setup the data base connection, as described [here](link missing!).
+- `JAVA_OPTIONS`: arguments to to the JVM used for the Spark execution. These arguments should be used to setup the data base connection, as described [here](https://github.com/smartshark/sparkSHARK#dbutils).
 
 Using the Spark session, you can initialize the database utilities for accessing the data:
 ```R
