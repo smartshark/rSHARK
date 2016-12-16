@@ -31,20 +31,20 @@ rShark.loadData <- function(mongoDBUtils,collectionName){
   sparkDataFrame
 }
 
-
-
-#' Creates list of logical lists Function
+#' Call loadDataLogical Function
 #'
-#' This function creates List of type List on backend.
-#' @name rShark.createLogicalLists
-#' @param logLists list of vectors of strings.
-#' @return List<List>
-#' @keywords createLogicalLists
+#' This function calls loadDataLogical on backend.
+#' @name rShark.loadDataLogical
+#' @param mongoDBUtils To be provided on which loadDataLogical method is called.
+#' @param collectionName To be provided for which data is retrived from backend.
+#' @param logLists List of vectors of strings.
+#' @return SparkDataFrame 
+#' @keywords loadDataLogical
 #' @export
 #' @examples
-#' rShark.createLogicalLists (list(c("ProcessMetrics","ProductMetrics"), c("ID","Name"))
+#' rShark.loadDataLogical (mongoDBUtils,collectionName,list(c("ProcessMetrics","ProductMetrics"), c("ID","Name")))
 
-rShark.createLogicalLists <- function(logLists){
+rShark.loadDataLogical <- function(mongoDBUtils,collectionName,logLists){
   logicalLists<-sparkR.newJObject("java.util.ArrayList")
   for(logList in logLists){
     logicalList<-sparkR.newJObject("java.util.ArrayList")
@@ -53,25 +53,6 @@ rShark.createLogicalLists <- function(logLists){
     }
     sparkR.callJMethod(logicalLists,"add",logicalList)
   }
-  
-  logicalLists
-}
-
-
-#' Call loadDataLogical Function
-#'
-#' This function calls loadDataLogical on backend.
-#' @name rShark.loadDataLogical
-#' @param mongoDBUtils To be provided on which loadDataLogical method is called.
-#' @param collectionName To be provided for which data is retrived from backend.
-#' @param logicalLists List of type List to provided on which filtering is performed.
-#' @return SparkDataFrame 
-#' @keywords loadDataLogical
-#' @export
-#' @examples
-#' rShark.loadDataLogical (mongoDBUtils,collectionName,logicalLists)
-
-rShark.loadDataLogical <- function(mongoDBUtils,collectionName,logicalLists){
   sparkDataFrame<- new("SparkDataFrame",sparkR.callJMethod(mongoDBUtils,"loadDataLogical",collectionName,logicalLists),FALSE) 
   sparkDataFrame
 }

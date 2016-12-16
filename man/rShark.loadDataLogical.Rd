@@ -4,14 +4,14 @@
 \alias{rShark.loadDataLogical}
 \title{Call loadDataLogical Function}
 \usage{
-rShark.loadDataLogical(mongoDBUtils, collectionName, logicalLists)
+rShark.loadDataLogical(mongoDBUtils, collectionName, logLists)
 }
 \arguments{
 \item{mongoDBUtils}{To be provided on which loadDataLogical method is called.}
 
 \item{collectionName}{To be provided for which data is retrived from backend.}
 
-\item{logicalLists}{List of type List to provided on which filtering is performed.}
+\item{logLists}{List of vectors of strings.}
 }
 \value{
 SparkDataFrame
@@ -20,7 +20,7 @@ SparkDataFrame
 This function calls loadDataLogical on backend.
 }
 \examples{
-rShark.loadDataLogical (mongoDBUtils,collectionName,logicalLists)
+rShark.loadDataLogical (mongoDBUtils,collectionName,list(c("ProcessMetrics","ProductMetrics"), c("ID","Name")))
 }
 \keyword{loadDataLogical}
 
