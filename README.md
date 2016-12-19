@@ -31,8 +31,7 @@ library(rSHARK)
 Then, you must create a Spark session:
 ```R
 sparkSession <- sparkR.session(master=SPARK_MASTER,
-                               sparkConfig=list(spark.driver.memory="2g",
-                                                spark.driver.extraClassPath="SPARKSHARK_JAR",
+                               sparkConfig=list(spark.driver.extraClassPath="SPARKSHARK_JAR",
                                                 spark.driver.extraLibraryPath="SPARKSHARK_JAR",
                                                 spark.driver.extraJavaOptions=JAVA_OPTIONS),
                                sparkJars=SPARKSHARK_JAR)
@@ -53,6 +52,8 @@ You can then use the `rShark.loadData()` and `rShark.loadDataLogical()` commands
 Examples
 ========
 
+Please find some helpful code snippets below. Complete rSHARK Jobs can be found [here](https://github.com/smartshark/SmartShark-Jobs/tree/master/r).
+
 Example 1: Initialize a local Spark and a local MongoDB
 --------------------------------------------
 ```R
@@ -64,8 +65,7 @@ JAVA_OPTIONS <- paste("-Dspark.exectutorEnv.dbtuils.type=mongo",
                       "-Dspark.executorEnv.mongo.dbname=smartshark")
 
 sparkSession <- sparkR.session(master=SPARK_MASTER,
-                               sparkConfig=list(spark.driver.memory="2g",
-                                                spark.driver.extraClassPath=SPARKSHARK_JAR,
+                               sparkConfig=list(spark.driver.extraClassPath=SPARKSHARK_JAR,
                                                 spark.driver.extraLibraryPath="SPARKSHARK_JAR",
                                                 spark.driver.extraJavaOptions=JAVA_OPTIONS),
                                sparkJars=SPARKSHARK_JAR)
@@ -87,8 +87,7 @@ JAVA_OPTIONS <- paste("-Dspark.exectutorEnv.dbtuils.type=mongo",
                       "-Dspark.executorEnv.mongo.password=PASSWORD")
 
 sparkSession <- sparkR.session(master=SPARK_MASTER,
-                               sparkConfig=list(spark.driver.memory="2g",
-                                                spark.driver.extraClassPath=SPARKSHARK_JAR,
+                               sparkConfig=list(spark.driver.extraClassPath=SPARKSHARK_JAR,
                                                 spark.driver.extraLibraryPath="SPARKSHARK_JAR",
                                                 spark.driver.extraJavaOptions=JAVA_OPTIONS),
                                sparkJars=SPARKSHARK_JAR)
@@ -104,7 +103,7 @@ rShark.loadData(mongoDBUtils, "commit")
 # Loads the document ID and the product metrics available for Java classes
 # from the entity_state collection
 rShark.loadDataLogical(mongoDBUtils,
-                       "entity_state",
-                       list(c("id"), c("PRODUCT_METRIC", "JAVA_CLASS")))
+                       "code_entity_state",
+                       list(c("AbstractionLevel"), c("ProductMetric", "JavaClass")))
 ```
 
